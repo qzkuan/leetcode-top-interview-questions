@@ -1,7 +1,13 @@
 package topinterviewquestions;
 
 public class Problem_0008_StringToInteger {
-
+	/**
+	 * 8. 字符串转换整数 (atoi)https://leetcode.cn/problems/string-to-integer-atoi/
+	 * 实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public static int myAtoi(String s) {
 		if (s == null || s.equals("")) {
 			return 0;
@@ -34,6 +40,12 @@ public class Problem_0008_StringToInteger {
 		return posi ? -res : res;
 	}
 
+	/**
+	 * 去除开头的除符号外的字符
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static String removeHeadZero(String str) {
 		boolean r = (str.startsWith("+") || str.startsWith("-"));
 		int s = r ? 1 : 0;
