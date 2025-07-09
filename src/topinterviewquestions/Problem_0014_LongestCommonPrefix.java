@@ -18,6 +18,7 @@ public class Problem_0014_LongestCommonPrefix {
 		for (String str : strs) {
 			char[] tmp = str.toCharArray();
 			int index = 0;
+			// 从第二个字符串开始与第一个字符串逐字符对比，查找最长的公共位置
 			while (index < tmp.length && index < chs.length) {
 				if (chs[index] != tmp[index]) {
 					break;

@@ -2,6 +2,11 @@ package topinterviewquestions;
 
 public class Problem_0005_LongestPalindromicSubstring {
 
+	/**
+	 * [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/description/)
+	 * @param str
+	 * @return
+	 */
 	public static String longestPalindrome(String str) {
 		if (str == null || str.length() == 0) {
 			return "";

@@ -3,6 +3,11 @@ package topinterviewquestions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
+ * 给定一个仅包含数字 `2-9` 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+ * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+ */
 public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 
 	public static char[][] phone = { 
@@ -16,7 +21,11 @@ public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 			{ 'w', 'x', 'y', 'z' }, // 9
 	};
 
-	// "23"
+	/**
+	 * 电话号码的字母组合
+	 * @param digits "23"
+	 * @return
+	 */
 	public static List<String> letterCombinations(String digits) {
 		List<String> ans = new ArrayList<>();
 		if (digits == null || digits.length() == 0) {
@@ -28,9 +37,13 @@ public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 		return ans;
 	}
 
-	// str = ['2','3']  3   3
-	// str[....index-1]，按出的结果是什么都在path里
-	// str[index...]  按完之后，有哪些组合，放入到ans里
+	/**
+	 * 递归收集可能得结果
+	 * @param str ['2','3'] 2 2
+	 * @param index str[index...]  按完之后，有哪些组合，放入到ans里
+	 * @param path str[....index-1]，按出的结果是什么都在path里
+	 * @param ans
+	 */
 	public static void process(char[] str, int index, char[] path, List<String> ans) {
 		if (index == str.length) {
 			ans.add(String.valueOf(path));

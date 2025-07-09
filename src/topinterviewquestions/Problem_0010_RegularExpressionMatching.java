@@ -1,5 +1,12 @@
 package topinterviewquestions;
 
+/**
+ * [10. 正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/)
+ * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+ * '.' 匹配任意单个字符
+ * '*' 匹配零个或多个前面的那一个元素
+ * 所谓匹配，是要涵盖 整个 字符串 s 的，而不是部分字符串。
+ */
 public class Problem_0010_RegularExpressionMatching {
 
 	public static boolean isValid(char[] str, char[] pattern) {
@@ -16,7 +23,7 @@ public class Problem_0010_RegularExpressionMatching {
 		return true;
 	}
 
-	// 课堂现场写
+	// TODO课堂现场写
 	public static boolean isMatch1(String s, String p) {
 		if (s == null || p == null) {
 			return false;

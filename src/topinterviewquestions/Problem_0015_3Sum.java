@@ -19,10 +19,14 @@ public class Problem_0015_3Sum {
 		Arrays.sort(nums);
 		List<List<Integer>> ans = new ArrayList<>();
 		// 第一个数选了i位置的数
+		// i < nums.length - 2 因为后边是二元组，要有足够的数
 		for (int i = 0; i < nums.length - 2; i++) {
+			// i位置的数与左边的数不同才有必要收集
 			if (i == 0 || nums[i - 1] != nums[i]) {
 				List<List<Integer>> nexts = twoSum1(nums, i + 1, -nums[i]);
 				for (List<Integer> cur : nexts) {
+					// ArrayList往头位置插数据会导致数据后移浪费额外时间
+					// 可以采用LinkedList或者从后往前遍历的方式规避cur.add(nums[i])
 					cur.add(0, nums[i]);
 					ans.add(cur);
 				}
@@ -43,6 +47,8 @@ public class Problem_0015_3Sum {
 			} else if (nums[L] + nums[R] < target) {
 				L++;
 			} else {
+				// nums[L] + nums[R] == target
+				// nums[L]与左边的数不一样才收集（防止重复）
 				if (L == begin || nums[L - 1] != nums[L]) {
 					List<Integer> cur = new ArrayList<>();
 					cur.add(nums[L]);

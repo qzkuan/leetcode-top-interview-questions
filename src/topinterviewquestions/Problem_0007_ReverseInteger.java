@@ -8,8 +8,8 @@ public class Problem_0007_ReverseInteger {
 	 * 如果反转后整数超过 32 位的有符号整数的范围 `[−231, 231 − 1]` ，就返回 0。
 	 * 假设环境不允许存储 64 位整数（有符号或无符号）。
 	 * 
-	 * @param x
-	 * @return
+	 * @param x eg -321 120
+	 * @return     -123 21
 	 */
 	public static int reverse(int x) {
 		// 判断x是否是负数，x >>> 31得到符号位

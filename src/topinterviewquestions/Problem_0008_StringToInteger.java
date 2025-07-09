@@ -33,7 +33,8 @@ public class Problem_0008_StringToInteger {
 			}
 			res = res * 10 + cur;
 		}
-		// res 负
+		// Integer取值范围：-2147483648 ~ 2147483647
+		// 原数非负&&res负特殊处理： 2147483648 -> 2147483647
 		if (posi && res == Integer.MIN_VALUE) {
 			return Integer.MAX_VALUE;
 		}
@@ -48,7 +49,7 @@ public class Problem_0008_StringToInteger {
 	 */
 	public static String removeHeadZero(String str) {
 		boolean r = (str.startsWith("+") || str.startsWith("-"));
-		int s = r ? 1 : 0;
+		int s = r ? 1 : 0; // 开头有+/-符号则从1位置处理，开头没有符号则从0位置处理
 		for (; s < str.length(); s++) {
 			if (str.charAt(s) != '0') {
 				break;
@@ -56,16 +57,22 @@ public class Problem_0008_StringToInteger {
 		}
 		// s 到了第一个不是'0'字符的位置
 		int e = -1;
-		// 左<-右
+		// 左 <- 右，最左的不为数字字符的位置
 		for (int i = str.length() - 1; i >= (r ? 1 : 0); i--) {
 			if (str.charAt(i) < '0' || str.charAt(i) > '9') {
 				e = i;
 			}
 		}
 		// e 到了最左的 不是数字字符的位置
+		// return [+/-/''] + subStr[s,e)
 		return (r ? String.valueOf(str.charAt(0)) : "") + str.substring(s, e == -1 ? str.length() : e);
 	}
 
+	/**
+	 * 检验字符串形式整数的合法性
+	 * @param chas
+	 * @return
+	 */
 	public static boolean isValid(char[] chas) {
 		if (chas[0] != '-' && chas[0] != '+' && (chas[0] < '0' || chas[0] > '9')) {
 			return false;

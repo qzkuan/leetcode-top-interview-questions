@@ -18,9 +18,9 @@ public class Problem_0002_AddTwoNumbers {
 	 * 请你将两个数相加，并以相同形式返回一个表示和的链表。
 	 * 假设除了数字 0 之外，这两个数都不会以 0 开头。
 	 * 
-	 * @param head1
-	 * @param head2
-	 * @return
+	 * @param head1 eg[2,4,3]	[6,7,4,8]
+	 * @param head2   [5,6,3]	[4,6,8,9]
+	 * @return		  [7,0,7]	[0,4,3,8,1]
 	 */
 	public static ListNode addTwoNumbers(ListNode head1, ListNode head2) {
 		int carry = 0;
