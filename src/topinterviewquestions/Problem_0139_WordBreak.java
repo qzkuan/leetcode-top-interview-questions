@@ -3,6 +3,13 @@ package topinterviewquestions;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * [139. 单词拆分](https://leetcode.cn/problems/word-break/)
+
+给你一个字符串 `s` 和一个字符串列表 `wordDict` 作为字典。如果可以利用字典中出现的一个或多个单词拼接出 `s` 则返回 `true`。
+
+**注意：**不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
+ */
 public class Problem_0139_WordBreak {
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
@@ -41,6 +48,12 @@ public class Problem_0139_WordBreak {
 		return dp[0];
 	}
 
+	/**
+	 * 单词拆分递归解法（会超时）
+	 * @param s
+	 * @param wordDict
+	 * @return
+	 */
 	public static boolean wordBreak2(String s, List<String> wordDict) {
 		return process(s, 0, new HashSet<>(wordDict)) != 0;
 	}
@@ -67,6 +80,12 @@ public class Problem_0139_WordBreak {
 		return ways;
 	}
 
+	/**
+	 * 单词拆分动态规划解法
+	 * @param s
+	 * @param wordDict
+	 * @return
+	 */
 	public static boolean wordBreak3(String s, List<String> wordDict) {
 		HashSet<String> set = new HashSet<>(wordDict);
 		int N = s.length();
