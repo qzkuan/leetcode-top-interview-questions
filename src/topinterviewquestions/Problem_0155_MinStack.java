@@ -16,6 +16,11 @@ public class Problem_0155_MinStack {
 		min = new Stack<>();
 	}
 
+	/**
+	 * 当一个元素要入栈时，我们取当前辅助栈的栈顶存储的最小值，与当前元素比较得出最小值，
+	 * 将这个最小值插入辅助栈中；
+	 * @param x
+	 */
 	public void push(int x) {
 		data.push(x);
 		if (min.isEmpty()) {
@@ -25,6 +30,9 @@ public class Problem_0155_MinStack {
 		}
 	}
 
+	/**
+	 * 当一个元素要出栈时，我们把辅助栈的栈顶元素也一并弹出；
+	 */
 	public void pop() {
 		data.pop();
 		min.pop();

@@ -75,6 +75,40 @@ public class Problem_0142_LinkedListCycle2 {
         }
         return slow;
     }
+	/**
+	 * 寻找链表入环的第一个节点（快慢指针解法）(方便理解法☆)
+	 * 时间复杂度O(N)，空间复杂度O(1)
+	 * 「Floyd 判圈算法」（又称龟兔赛跑算法）
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public ListNode detectCycle2(ListNode head) {
+        if (head == null || head.next == null ) {
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // 第一步：判断是否有环（快慢指针相遇）
+        while (fast != null && fast.next != null) {
+            slow = slow.next;         // 走一步
+            fast = fast.next.next;    // 走两步
+
+            if (slow == fast) {
+                // 第二步：找环的起点
+                ListNode entry = head;
+                while (entry != slow) {
+                    entry = entry.next;
+                    slow = slow.next;
+                }
+                return entry; // 入环点
+            }
+        }
+
+        // 无环
+        return null;
+    }
 
 	/**
 	 * 寻找链表入环的第一个节点（哈希表解法）
